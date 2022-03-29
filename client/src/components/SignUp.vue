@@ -47,17 +47,17 @@ export default {
         this.user.email = user.email
         this.user.password = user.password
         this.user.id = user.id
-        localStorage.setItem("userId", user.id);
-        console.log(localStorage.getItem('userId'))
+      localStorage.setItem("userId", user.id);
+       console.log(localStorage.getItem('userId'))
       })
       if (user){
         window.location.href = 'http://localhost:8080/#/LogIn';
         this.store.commit('set', {
         user: this.user
       })
-      localStorage.setItem("userId", user.id);
+       localStorage.setItem("userId", user.id);
       console.log(store.state.user)
-      console.log(localStorage.getItem('userId'))
+       console.log(localStorage.getItem('userId'))
       }
     }
 

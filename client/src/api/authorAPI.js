@@ -14,7 +14,7 @@ export const addAuthor = async(
   academicDegree
   ) => {
     try {
-        const id = localStorage.getItem('userId')
+        const id = localStorage.getItem('SavedToken')
         const response = await $api.post(`/author/${id}`,{
           name,
           surname,
@@ -33,7 +33,7 @@ export const addAuthor = async(
         console.log(e)
     }
   }
-export const getAuthor = async(id = localStorage.getItem('authorId')) => {
+export const getAuthor = async(id = localStorage.getItem('userId')) => {
       try {
           const response = await $api.get(`/authors/${id}`)
           return response

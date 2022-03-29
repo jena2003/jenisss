@@ -55,7 +55,6 @@ export default class AuthorController {
     try {
       return await authorRepository.findOneOrFail(id, {
         select: <(keyof Author)[]>AUTHOR_DEFAULT_SELECT,
-      //relations: ['article'],
       });
     } catch (error) {
       return res.status(404).send('User not found');

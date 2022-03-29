@@ -164,12 +164,11 @@ export default {
            this.author.id=author.id
            localStorage.setItem("authorId",author.id)
            console.log(localStorage.getItem("authorId"))
+           console.log(author)
         })
         if (author){
           window.location.href = 'http://localhost:8080/#/MyProfileScreen';
-           this.store.commit('set', {
-           author: this.author
-        })
+        }
          localStorage.setItem("authorId",author.id)
            console.log(localStorage.getItem("authorId"))
         }
@@ -179,7 +178,7 @@ export default {
       alert('Вы уверены, что хотите выйти из профиля?')
     }
   }
-}
+
 </script>
 
 <style lang="less" scoped>

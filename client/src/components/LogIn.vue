@@ -25,9 +25,10 @@ export default {
    name: 'Login',
    data(){
     return {
-      form:{
+      user:{
         email: "",
-        password: ""
+        password: "",
+        id:""
       },
       jwt: '',
       store: store
@@ -36,6 +37,7 @@ export default {
   methods: {
     SignIn() {
     let jwt = ''
+    let user={}
      auth(this.email,this.password).then((response)=>{
         return response.data
       }).then(data => {
@@ -44,11 +46,17 @@ export default {
         console.log(jwt)
       }).then(() => {
         this.jwt = jwt
-      }).then(() => {
-          window.location.href = 'http://localhost:8080/#/EditProfileScreen';
+        this.user.id=user.id
+        localStorage.setItem("userId", user.id);
+        console.log(localStorage.getItem('userId'))
         localStorage.setItem("SavedToken", jwt);
         console.log(localStorage.getItem('SavedToken'))
-        window.location.reload();
+      }).then(() => {
+      if(jwt){
+          window.location.href = 'http://localhost:8080/#/EditProfileScreen';
+       } localStorage.setItem("SavedToken", jwt);
+        console.log(localStorage.getItem('SavedToken'))
+       // window.location.reload();
       })
     }
   }
